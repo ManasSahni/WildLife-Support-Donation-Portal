@@ -1,0 +1,49 @@
+<%- include('./partials/header') %> 
+
+<button class="btn btn-lg btn-success" id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_79GVewek8D1Dyt",
+    "amount": '<%=parseInt(details.amount*100) %>',
+    "currency": "INR",
+    "name": "WildLife Support",
+    "description": "Wildlife Saving Fund",
+    "order_id": "<%= details.payerId %>",
+    "handler": function (response){
+        if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+        redirect_url = 'http://localhost:5524/fail';
+        } else {
+        redirect_url = 'http://localhost:5524/success';
+        }
+        location.href = redirect_url;
+    },
+    "prefill": {
+        "name": '<%= details.name %>' ,
+        "email": '<%= details.email %>',
+        "contact": '<%= details.mobile %>'
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+<%- include('./partials/footer') %> 

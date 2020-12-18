@@ -1,0 +1,85 @@
+body{
+  text-align: center;
+  background-color: orange;
+  
+}
+
+#my-navbar{
+  background-image: linear-gradient(to bottom right, yellow,orange, rgb(220, 93, 20));
+  
+  height: 90px;
+}
+
+#about{
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 50px;
+}
+
+#main-banner{
+  margin: 0;
+  padding: 0;
+  height: 800px;
+  background-color: orange;
+}
+
+#main-img{
+  margin: 0;
+  padding-top: 100px;
+  width: 1500px;
+  height: 700px;
+}
+
+.txt1{
+  position: absolute;
+  top:200px;
+  left:5%;
+  color: rgb(233, 220, 41);
+  font-family: 'Pacifico', cursive;
+  font-size: 4.5rem;
+  animation: appear 5s;
+}
+
+.txt2{
+  position: absolute;
+  top:350px;
+  left:30%;
+  color: greenyellow;
+  font-size: 4rem;
+  font-family: sans-serif;
+  font-weight: bolder;
+  animation: appear 1s infinite;
+}
+
+.txt3{
+  position: absolute;
+  top:500px;
+  color: aliceblue;
+  background-color: black;
+  opacity: 0.7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+
+#donate{
+  height: 600px;
+}
+
+#img2{
+  position: relative;
+  width: 70%;
+}
